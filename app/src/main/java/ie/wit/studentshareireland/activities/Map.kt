@@ -73,7 +73,6 @@ class Map : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickList
         val launcherIntent = Intent(this, ViewItem::class.java)
         launcherIntent.putExtra("view", studentShare)
         startActivity(launcherIntent)
-        Toast.makeText(applicationContext, studentShare.toString(), Toast.LENGTH_LONG).show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

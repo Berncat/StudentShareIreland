@@ -37,7 +37,7 @@ I also persisted very hard to try and get more then one image uploaded looking a
 
 Main things I like are the search function. I think having the radius is pretty cool to show which ones are close to which college.
 
-Here is link to demo video:
+Here is link to demo video: https://youtu.be/D3-FR6hFgmE
 
 
 Over all an enjoyable project with alot of things learned.
