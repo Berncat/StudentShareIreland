@@ -3,8 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_create"
+        android:id="@+id/action_cancel"
         android:orderInCategory="100"
+        android:icon="@drawable/ic_baseline_cancel_24"
+        android:title="@string/menu_cancel"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_create"
+        android:orderInCategory="200"
         android:title="@string/create_add"
         app:showAsAction="never" />
 </menu>

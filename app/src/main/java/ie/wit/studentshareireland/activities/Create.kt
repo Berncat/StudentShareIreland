@@ -1,6 +1,7 @@
 package ie.wit.studentshareireland.activities
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -22,6 +23,7 @@ class Create : AppCompatActivity() {
     private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent>
     lateinit var app: MainApp
     var studentShare = StudentShareModel()
+    var edit = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,20 +31,32 @@ class Create : AppCompatActivity() {
         binding = ActivityCreateBinding.inflate(layoutInflater)
         setContentView(binding.root)
         app = application as MainApp
+        checkIfEdit()
         setUpAddButton()
         registerImagePickerCallback()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_create, menu)
-        return true
+        if (edit) menu.getItem(0).isVisible = true
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.action_delete -> {
+                app.studentShares.delete(studentShare)
+                val message = "Your share was removed"
+                Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
+                finish()
+            }
+            R.id.action_cancel -> {
+                finish()
+            }
             R.id.action_list -> {
                 val launcherIntent = Intent(this, List::class.java)
                 startActivity(launcherIntent)
+                finish()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -55,12 +69,32 @@ class Create : AppCompatActivity() {
                 studentShare.cost = binding.cost.text.toString()
                 studentShare.details = binding.details.text.toString()
                 studentShare.phone = binding.phone.text.toString()
-                val message = "Your share was added"
+                val message = if (edit) {
+                    app.studentShares.update(studentShare.copy())
+                    "Your share was updated"
+                } else {
+                    app.studentShares.create(studentShare.copy())
+                    "Your share was added"
+                }
                 Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
-                app.studentShares.create(studentShare.copy())
                 setResult(RESULT_OK)
                 finish()
             }
+        }
+    }
+
+    private fun checkIfEdit() {
+        if (intent.hasExtra("edit")) {
+            edit = true
+            studentShare = intent.extras?.getParcelable("edit")!!
+            binding.street.setText(studentShare.street)
+            binding.cost.setText(studentShare.cost)
+            binding.details.setText(studentShare.details)
+            binding.phone.setText(studentShare.phone)
+            binding.addButton.setText(R.string.create_update)
+            Picasso.get()
+                .load(studentShare.image)
+                .into(binding.Image)
         }
     }
 
