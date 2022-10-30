@@ -7,7 +7,14 @@ import com.squareup.picasso.Picasso
 import ie.wit.studentshareireland.databinding.CardStudentShareBinding
 import ie.wit.studentshareireland.models.StudentShareModel
 
-class ListAdapter constructor(private var studentShares: List<StudentShareModel>) :
+interface ListListener {
+    fun onCardClick(studentShare: StudentShareModel)
+}
+
+class ListAdapter constructor(
+    private var studentShares: List<StudentShareModel>,
+    private val listener: ListListener
+) :
     RecyclerView.Adapter<ListAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -18,8 +25,8 @@ class ListAdapter constructor(private var studentShares: List<StudentShareModel>
     }
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
-        val studentShare= studentShares[holder.adapterPosition]
-        holder.bind(studentShare)
+        val studentShare = studentShares[holder.adapterPosition]
+        holder.bind(studentShare, listener)
     }
 
     override fun getItemCount(): Int = studentShares.size
@@ -27,9 +34,10 @@ class ListAdapter constructor(private var studentShares: List<StudentShareModel>
     class MainHolder(private val binding: CardStudentShareBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(studentShare: StudentShareModel) {
+        fun bind(studentShare: StudentShareModel, listener: ListListener) {
             binding.shareStreet.text = studentShare.street
-            Picasso.get().load(studentShare.image).resize(200,200).into(binding.imageIcon)
+            Picasso.get().load(studentShare.image).resize(200, 200).into(binding.imageIcon)
+            binding.root.setOnClickListener { listener.onCardClick(studentShare) }
         }
     }
 }
