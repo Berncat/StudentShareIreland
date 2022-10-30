@@ -17,14 +17,14 @@ import ie.wit.studentshareireland.models.StudentShareModel
 import timber.log.Timber
 import kotlin.collections.List
 
-class List : AppCompatActivity(), ListListener {
+class Listing : AppCompatActivity(), ListListener {
     lateinit var app: MainApp
     private lateinit var binding: ActivityListBinding
     private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Timber.i("List Activity Started")
+        Timber.i("Listing Activity Started")
         binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         app = application as MainApp
@@ -43,10 +43,6 @@ class List : AppCompatActivity(), ListListener {
         when (item.itemId) {
             R.id.action_cancel -> {
                 finish()
-            }
-            R.id.action_create -> {
-                val launcherIntent = Intent(this, Create::class.java)
-                refreshIntentLauncher.launch(launcherIntent)
             }
         }
         return super.onOptionsItemSelected(item)

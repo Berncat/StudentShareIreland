@@ -19,6 +19,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import ie.wit.studentshareireland.R
 import ie.wit.studentshareireland.databinding.ActivityLocationBinding
 import ie.wit.studentshareireland.models.Coordinates
+import timber.log.Timber
 
 class Location : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerDragListener,
     GoogleMap.OnMarkerClickListener {
@@ -30,6 +31,7 @@ class Location : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerDrag
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Timber.i("Location Activity Started")
         binding = ActivityLocationBinding.inflate(layoutInflater)
         setContentView(binding.root)
         location = intent.extras?.getParcelable<Coordinates>("location")!!
@@ -96,19 +98,12 @@ class Location : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerDrag
                 Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
                 finish()
             }
-            R.id.action_list -> {
-                val launcherIntent = Intent(this, List::class.java)
-                startActivity(launcherIntent)
-                val message = "Location was not saved"
-                Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
-                finish()
-            }
         }
         return super.onOptionsItemSelected(item)
     }
 
 
-        private fun setUpSearch() {
+    private fun setUpSearch() {
         binding.searchBox.setEndIconOnClickListener {
             val search = geocoder.getFromLocationName(binding.search.text.toString(), 1)
             if (search != null) {

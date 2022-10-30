@@ -15,9 +15,4 @@
         android:icon="@drawable/ic_baseline_cancel_24"
         android:title="@string/menu_cancel"
         app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/action_list"
-        android:orderInCategory="300"
-        android:title="@string/menu_list"
-        app:showAsAction="never" />
 </menu>

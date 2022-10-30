@@ -55,11 +55,6 @@ class Create : AppCompatActivity() {
             R.id.action_cancel -> {
                 finish()
             }
-            R.id.action_list -> {
-                val launcherIntent = Intent(this, List::class.java)
-                startActivity(launcherIntent)
-                finish()
-            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -75,13 +70,13 @@ class Create : AppCompatActivity() {
                     app.studentShares.update(studentShare.copy())
                     "Your share was updated"
                 } else {
+                    val launcherIntent = Intent(this, Listing::class.java)
+                    startActivity(launcherIntent)
                     app.studentShares.create(studentShare.copy())
                     "Your share was added"
                 }
                 Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
                 setResult(RESULT_OK)
-                val launcherIntent = Intent(this, List::class.java)
-                startActivity(launcherIntent)
                 finish()
             }
         }
@@ -89,11 +84,12 @@ class Create : AppCompatActivity() {
 
     private fun setUpLocationButton() {
         binding.locationButton.setOnClickListener {
-            val location = Coordinates(53.1424, -7.84, 6.5f)
+            val location = Coordinates(53.1424, -7.84, 6.5f, 0.0)
             if (edit) {
                 location.lat = studentShare.lat
                 location.lng = studentShare.lng
                 location.zoom = 17f
+                location.radius = 0.0
             }
             val launcherIntent = Intent(this, Location::class.java).putExtra("location", location)
             mapIntentLauncher.launch(launcherIntent)

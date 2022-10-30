@@ -20,6 +20,18 @@ data class StudentShareModel(
 data class Coordinates(
     var lat: Double = 0.0,
     var lng: Double = 0.0,
-    var zoom: Float = 0f
+    var zoom: Float = 0f,
+    var radius: Double = 0.0
 ) : Parcelable
+
+@Parcelize
+data class InstitutionModel(
+    var title: String = "",
+    var lat: Double = 0.0,
+    var lng: Double = 0.0
+) : Parcelable {
+    override fun toString(): String {
+        return title
+    }
+}
 

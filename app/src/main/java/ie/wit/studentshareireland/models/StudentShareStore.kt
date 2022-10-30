@@ -5,4 +5,9 @@ interface StudentShareStore {
     fun create(studentShare: StudentShareModel)
     fun update(studentShare: StudentShareModel)
     fun delete(studentShare: StudentShareModel)
+    fun findOne(id: Long): StudentShareModel?
+}
+
+interface InstitutionStore {
+    fun findAll(): List<InstitutionModel>
 }

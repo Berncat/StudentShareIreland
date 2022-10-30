@@ -8,9 +8,5 @@
         android:icon="@drawable/ic_baseline_cancel_24"
         android:title="@string/menu_cancel"
         app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/action_create"
-        android:orderInCategory="200"
-        android:title="@string/create_add"
-        app:showAsAction="never" />
+
 </menu>
