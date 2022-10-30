@@ -6,9 +6,34 @@
     <string name="hint_details">Other details</string>
     <string name="hint_phone">Phone</string>
     <string name="create_add">Add share</string>
-    <string name="menu_list">Your Shares</string>
+    <string name="menu_list">Your shares</string>
     <string name="menu_delete">Delete</string>
     <string name="change_image">Change image</string>
     <string name="create_update">Update share</string>
+    <string name="create_location">Add location</string>
+    <string name="create_location_update">Update location</string>
     <string name="menu_cancel">Cancel</string>
+    <string name="title_activity_location">Location</string>
+    <string name="hint_eircode">Enter Eircode</string>
+    <string name="menu_location">Add</string>
+    <string name="institution">Select Institution:</string>
+    <string name="radius">Select Radius:</string>
+    <string name="search">Search</string>
+    <string-array name="distance">
+        <item>1km</item>
+        <item>2km</item>
+        <item>3km</item>
+        <item>4km</item>
+        <item>5km</item>
+        <item>10km</item>
+        <item>15km</item>
+        <item>20km</item>
+        <item>25km</item>
+        <item>30km</item>
+        <item>40km</item>
+        <item>50km</item>
+    </string-array>
+    <string name="title_activity_map">Map</string>
+    <string name="welcome_header">Welcome to</string>
+    <string name="sign_out">Sign out</string>
 </resources>

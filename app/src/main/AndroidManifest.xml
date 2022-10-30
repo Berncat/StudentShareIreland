@@ -15,10 +15,10 @@
         android:theme="@style/Theme.StudentShareIreland"
         tools:targetApi="31">
         <activity
-            android:name=".activities.List"
+            android:name=".activities.Register"
             android:exported="false" />
         <activity
-            android:name=".activities.Create"
+            android:name=".activities.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +26,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.ViewItem"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
+        <activity
+            android:name=".activities.Map"
+            android:exported="false"
+            android:label="@string/title_activity_map" />
+        <activity
+            android:name=".activities.Location"
+            android:exported="false"
+            android:label="@string/title_activity_location" />
+        <activity
+            android:name=".activities.Listing"
+            android:exported="false" />
+        <activity
+            android:name=".activities.Create"
+            android:exported="false" />
+        <activity
+            android:name=".activities.Search"
+            android:exported="false" />
     </application>
 
 </manifest>

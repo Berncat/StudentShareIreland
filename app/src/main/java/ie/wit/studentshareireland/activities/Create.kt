@@ -1,7 +1,6 @@
 package ie.wit.studentshareireland.activities
 
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -15,12 +14,14 @@ import ie.wit.studentshareireland.R
 import ie.wit.studentshareireland.databinding.ActivityCreateBinding
 import ie.wit.studentshareireland.helpers.showImagePicker
 import ie.wit.studentshareireland.main.MainApp
+import ie.wit.studentshareireland.models.Coordinates
 import ie.wit.studentshareireland.models.StudentShareModel
 import timber.log.Timber
 
 class Create : AppCompatActivity() {
     private lateinit var binding: ActivityCreateBinding
     private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent>
+    private lateinit var mapIntentLauncher: ActivityResultLauncher<Intent>
     lateinit var app: MainApp
     var studentShare = StudentShareModel()
     var edit = false
@@ -33,6 +34,7 @@ class Create : AppCompatActivity() {
         app = application as MainApp
         checkIfEdit()
         setUpAddButton()
+        setUpLocationButton()
         registerImagePickerCallback()
     }
 
@@ -53,11 +55,6 @@ class Create : AppCompatActivity() {
             R.id.action_cancel -> {
                 finish()
             }
-            R.id.action_list -> {
-                val launcherIntent = Intent(this, List::class.java)
-                startActivity(launcherIntent)
-                finish()
-            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -69,10 +66,13 @@ class Create : AppCompatActivity() {
                 studentShare.cost = binding.cost.text.toString()
                 studentShare.details = binding.details.text.toString()
                 studentShare.phone = binding.phone.text.toString()
+                studentShare.userId = app.users.getActiveUser()!!.id
                 val message = if (edit) {
                     app.studentShares.update(studentShare.copy())
                     "Your share was updated"
                 } else {
+                    val launcherIntent = Intent(this, Listing::class.java)
+                    startActivity(launcherIntent)
                     app.studentShares.create(studentShare.copy())
                     "Your share was added"
                 }
@@ -83,6 +83,21 @@ class Create : AppCompatActivity() {
         }
     }
 
+    private fun setUpLocationButton() {
+        binding.locationButton.setOnClickListener {
+            val location = Coordinates(53.1424, -7.84, 6.5f, 0.0)
+            if (edit) {
+                location.lat = studentShare.lat
+                location.lng = studentShare.lng
+                location.zoom = 17f
+                location.radius = 0.0
+            }
+            val launcherIntent = Intent(this, Location::class.java).putExtra("location", location)
+            mapIntentLauncher.launch(launcherIntent)
+        }
+        registerMapCallback()
+    }
+
     private fun checkIfEdit() {
         if (intent.hasExtra("edit")) {
             edit = true
@@ -91,6 +106,7 @@ class Create : AppCompatActivity() {
             binding.cost.setText(studentShare.cost)
             binding.details.setText(studentShare.details)
             binding.phone.setText(studentShare.phone)
+            binding.locationButton.setText(R.string.create_location_update)
             binding.addButton.setText(R.string.create_update)
             Picasso.get()
                 .load(studentShare.image)
@@ -110,6 +126,27 @@ class Create : AppCompatActivity() {
                                 .load(studentShare.image)
                                 .into(binding.Image)
                         }
+                    }
+                    RESULT_CANCELED -> {}
+                    else -> {}
+                }
+            }
+    }
+
+    private fun registerMapCallback() {
+        mapIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { result ->
+                when (result.resultCode) {
+                    RESULT_OK -> {
+                        if (result.data != null) {
+                            Timber.i("Got Location ${result.data.toString()}")
+                            val location =
+                                result.data!!.extras?.getParcelable<Coordinates>("location")!!
+                            Timber.i("Location == $location")
+                            studentShare.lat = location.lat
+                            studentShare.lng = location.lng
+                        } // end of if
                     }
                     RESULT_CANCELED -> {}
                     else -> {}

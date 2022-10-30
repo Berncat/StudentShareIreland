@@ -1,0 +1,227 @@
+[
+  {
+    "title": "All",
+    "lat": 53.1424,
+    "lng": -7.84
+  },
+  {
+    "title": "ATU - Donegal - Killybegs",
+    "lat": 54.63146,
+    "lng": -8.44490
+  },
+  {
+    "title": "ATU - Donegal - Letterkenny",
+    "lat": 54.95229,
+    "lng": -7.72092
+  },
+  {
+    "title": "ATU - Galway",
+    "lat": 53.27921,
+    "lng": -9.01040
+  },
+  {
+    "title": "ATU - Galway - Connermara",
+    "lat": 53.55250,
+    "lng": -9.94767
+  },
+  {
+    "title": "ATU - Galway - Mountbellew",
+    "lat": 53.46878,
+    "lng": -8.49371
+  },
+  {
+    "title": "ATU - Sligo",
+    "lat": 54.27919,
+    "lng": -8.46132
+  },
+  {
+    "title": "ATU - Sligo - St. Angela's",
+    "lat": 54.25913,
+    "lng": -8.38362
+  },
+  {
+    "title": "ATU - Mayo",
+    "lat": 53.84992,
+    "lng": -9.30562
+  },
+  {
+    "title": "Dublin City University",
+    "lat": 53.38542,
+    "lng": -6.25883
+  },
+  {
+    "title": "Dun Laoghaire Institute Of Art Design & Technology",
+    "lat": 53.28053,
+    "lng": -6.15232
+  },
+  {
+    "title": "Dundalk Institute of Technology",
+    "lat": 53.89430,
+    "lng": -6.39337
+  },
+  {
+    "title": "Maynooth University",
+    "lat": 53.38461,
+    "lng": -6.60109
+  },
+  {
+    "title": "MTU - Cork - Bishopstown ",
+    "lat": 51.88612,
+    "lng": -8.53354
+  },
+  {
+    "title": "MTU - Cork - Crawford College of Art & Design",
+    "lat": 51.89507,
+    "lng": -8.48159
+  },
+  {
+    "title": "MTU - Cork - National Maritime College of Ireland",
+    "lat": 51.83299,
+    "lng": -8.30507
+  },
+  {
+    "title": "MTU - Cork - School of Music ",
+    "lat": 51.89631,
+    "lng": -8.46801
+  },
+  {
+    "title": "MTU - Kerry - North Campus",
+    "lat": 52.28635,
+    "lng": -9.67306
+  },
+  {
+    "title": "MTU - Kerry - South Campus",
+    "lat": 52.27126,
+    "lng": -9.68893
+  },
+  {
+    "title": "SETU - Carlow - Kilkenny Road",
+    "lat": 52.82729,
+    "lng": -6.93609
+  },
+  {
+    "title": "SETU - Carlow - South Sports Campus",
+    "lat": 52.81752,
+    "lng": -6.94516
+  },
+  {
+    "title": "SETU - Waterford - West Campus",
+    "lat": 52.25161,
+    "lng": -7.17967
+  },
+  {
+    "title": "SETU - Waterford - Cork Road",
+    "lat": 52.24616,
+    "lng": -7.13869
+  },
+  {
+    "title": "SETU - Waterford - College Street",
+    "lat": 52.25454,
+    "lng": -7.11671
+  },
+  {
+    "title": "SETU - Waterford - The Granary",
+    "lat": 52.26269,
+    "lng": -7.11519
+  },
+  {
+    "title": "SETU - Waterford - Applied Technology Building",
+    "lat": 52.24720,
+    "lng": -7.14487
+  },
+  {
+    "title": "SETU - Wexford - Summerhill Road",
+    "lat": 52.33435,
+    "lng": -6.47190
+  },
+  {
+    "title": "SETU - Wexford - School of Art & Design",
+    "lat": 52.34141,
+    "lng": -6.46853
+  },
+  {
+    "title": "SETU - Wicklow",
+    "lat": 52.99928,
+    "lng": -6.08160
+  },
+  {
+    "title": "Trinity College Dublin",
+    "lat": 53.34389,
+    "lng": -6.25459
+  },
+  {
+    "title": "TU Dublin - Aungier Street",
+    "lat": 53.33854,
+    "lng": -6.26654
+  },
+  {
+    "title": "TU Dublin - Blanchardstown",
+    "lat": 53.40479,
+    "lng": -6.37869
+  },
+  {
+    "title": "TU Dublin - Bolton Street",
+    "lat": 53.35154,
+    "lng": -6.26928
+  },
+  {
+    "title": "TU Dublin - Grangegorman",
+    "lat": 53.35497,
+    "lng": -6.27949
+  },
+  {
+    "title": "TU Dublin - Tallaght",
+    "lat": 53.29112,
+    "lng": -6.36344
+  },
+  {
+    "title": "TUS - Athlone",
+    "lat": 53.41781,
+    "lng": -7.90375
+  },
+  {
+    "title": "TUS - Clonmel",
+    "lat": 52.36389,
+    "lng": -7.70539
+  },
+  {
+    "title": "TUS - Ennis",
+    "lat": 52.84617,
+    "lng": -8.98515
+  },
+  {
+    "title": "TUS - Limerick School of Art & Design",
+    "lat": 52.66512,
+    "lng": -8.61437
+  },
+  {
+    "title": "TUS - Moylish",
+    "lat": 52.67556,
+    "lng": -8.64752
+  },
+  {
+    "title": "TUS - Thurles",
+    "lat": 52.68606,
+    "lng": -7.82618
+  },
+  {
+    "title": "University College Cork",
+    "lat": 51.89358,
+    "lng": -8.49206
+  },
+  {
+    "title": "University College Dublin",
+    "lat": 53.30658,
+    "lng": -6.21863
+  },
+  {
+    "title": "University of Galway",
+    "lat": 53.27925,
+    "lng": -9.06176
+  },
+  {
+    "title": "University of Limerick",
+    "lat": 52.67369,
+    "lng": -8.57243
+  }
+]

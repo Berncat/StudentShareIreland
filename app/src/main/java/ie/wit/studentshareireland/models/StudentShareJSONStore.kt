@@ -30,9 +30,18 @@ class StudentShareJSONStore(private val context: Context) : StudentShareStore {
         serialize()
     }
 
+    override fun findUsersOnly(id: Long): List<StudentShareModel> {
+        var usersList = mutableListOf<StudentShareModel>()
+        for (share in studentShares) {
+            if (share.userId == id) {
+                usersList.add(share)
+            }
+        }
+        return usersList
+    }
+
     override fun update(studentShare: StudentShareModel) {
-        val studentSharesList = findAll() as ArrayList<StudentShareModel>
-        val foundStudentShare: StudentShareModel? = studentSharesList.find { s -> s.id == studentShare.id }
+        var foundStudentShare: StudentShareModel? = studentShares.find { s -> s.id == studentShare.id }
         if (foundStudentShare != null) {
             foundStudentShare.street = studentShare.street
             foundStudentShare.cost = studentShare.cost
@@ -46,6 +55,10 @@ class StudentShareJSONStore(private val context: Context) : StudentShareStore {
     override fun delete(studentShare: StudentShareModel) {
         studentShares.remove(studentShare)
         serialize()
+    }
+
+    override fun findOne(id: Long): StudentShareModel? {
+        return studentShares.find { s -> s.id == id }
     }
 
     private fun serialize() {
