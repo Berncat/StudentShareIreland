@@ -10,5 +10,10 @@
     <string name="menu_delete">Delete</string>
     <string name="change_image">Change image</string>
     <string name="create_update">Update share</string>
+    <string name="create_location">Add location</string>
+    <string name="create_location_update">Update location</string>
     <string name="menu_cancel">Cancel</string>
+    <string name="title_activity_location">Location</string>
+    <string name="hint_eircode">Enter Eircode</string>
+    <string name="menu_location">Add</string>
 </resources>

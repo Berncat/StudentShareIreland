@@ -11,6 +11,15 @@ data class StudentShareModel(
     var cost: String = "",
     var details: String = "",
     var phone: String = "",
-    var image: Uri = Uri.EMPTY
+    var image: Uri = Uri.EMPTY,
+    var lat: Double = 0.0,
+    var lng: Double = 0.0,
+) : Parcelable
+
+@Parcelize
+data class Coordinates(
+    var lat: Double = 0.0,
+    var lng: Double = 0.0,
+    var zoom: Float = 0f
 ) : Parcelable
 
