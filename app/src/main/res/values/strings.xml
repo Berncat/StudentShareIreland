@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">StudentShareIreland</string>
+    <string name="app_name">Student Share</string>
+    <string name="select_image">Select Image</string>
+    <string name="hint_street">Street/Area</string>
+    <string name="hint_cost">Cost per month</string>
+    <string name="hint_details">Other details</string>
+    <string name="hint_phone">Phone</string>
+    <string name="create_add">Add share</string>
+    <string name="menu_list">Your Shares</string>
+    <string name="change_image">Change image</string>
 </resources>
