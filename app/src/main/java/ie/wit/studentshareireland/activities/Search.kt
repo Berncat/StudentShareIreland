@@ -53,6 +53,11 @@ class Search : AppCompatActivity() {
                 val launcherIntent = Intent(this, Listing::class.java)
                 startActivity(launcherIntent)
             }
+            R.id.action_sign_out -> {
+                app.users.signOut()
+                startActivity(Intent(this, Login::class.java))
+                finish()
+            }
         }
         return super.onOptionsItemSelected(item)
     }

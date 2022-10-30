@@ -61,7 +61,7 @@ class Listing : AppCompatActivity(), ListListener {
     }
 
     private fun loadStudentShares() {
-        showStudentShares(app.studentShares.findAll())
+        showStudentShares(app.studentShares.findUsersOnly(app.users.getActiveUser()!!.id))
     }
 
     fun showStudentShares (studentShares: List<StudentShareModel>) {

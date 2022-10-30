@@ -66,6 +66,7 @@ class Create : AppCompatActivity() {
                 studentShare.cost = binding.cost.text.toString()
                 studentShare.details = binding.details.text.toString()
                 studentShare.phone = binding.phone.text.toString()
+                studentShare.userId = app.users.getActiveUser()!!.id
                 val message = if (edit) {
                     app.studentShares.update(studentShare.copy())
                     "Your share was updated"

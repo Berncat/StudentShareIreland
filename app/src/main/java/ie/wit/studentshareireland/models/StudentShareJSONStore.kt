@@ -30,6 +30,16 @@ class StudentShareJSONStore(private val context: Context) : StudentShareStore {
         serialize()
     }
 
+    override fun findUsersOnly(id: Long): List<StudentShareModel> {
+        var usersList = mutableListOf<StudentShareModel>()
+        for (share in studentShares) {
+            if (share.userId == id) {
+                usersList.add(share)
+            }
+        }
+        return usersList
+    }
+
     override fun update(studentShare: StudentShareModel) {
         var foundStudentShare: StudentShareModel? = studentShares.find { s -> s.id == studentShare.id }
         if (foundStudentShare != null) {

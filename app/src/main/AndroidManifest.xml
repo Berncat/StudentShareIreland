@@ -15,6 +15,18 @@
         android:theme="@style/Theme.StudentShareIreland"
         tools:targetApi="31">
         <activity
+            android:name=".activities.Register"
+            android:exported="false" />
+        <activity
+            android:name=".activities.Login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activities.ViewItem"
             android:exported="false" />
 
@@ -38,13 +50,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.Search"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -8,5 +8,4 @@
         android:icon="@drawable/ic_baseline_cancel_24"
         android:title="@string/menu_cancel"
         app:showAsAction="ifRoom"/>
-
 </menu>

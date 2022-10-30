@@ -14,6 +14,7 @@ data class StudentShareModel(
     var image: Uri = Uri.EMPTY,
     var lat: Double = 0.0,
     var lng: Double = 0.0,
+    var userId: Long = 0,
 ) : Parcelable
 
 @Parcelize
@@ -34,4 +35,15 @@ data class InstitutionModel(
         return title
     }
 }
+
+@Parcelize
+data class UserModel(
+    var id: Long = 0,
+    var firstName: String = "",
+    var surname: String = "",
+    var email: String = "",
+    var password: String = "",
+    var active: Boolean = false,
+    var studentShares: MutableList<StudentShareModel> = mutableListOf()
+) : Parcelable
 
