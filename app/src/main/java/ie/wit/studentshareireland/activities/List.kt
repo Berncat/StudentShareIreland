@@ -10,13 +10,14 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import ie.wit.studentshareireland.R
 import ie.wit.studentshareireland.adapters.ListAdapter
+import ie.wit.studentshareireland.adapters.ListListener
 import ie.wit.studentshareireland.databinding.ActivityListBinding
 import ie.wit.studentshareireland.main.MainApp
 import ie.wit.studentshareireland.models.StudentShareModel
 import timber.log.Timber
 import kotlin.collections.List
 
-class List : AppCompatActivity() {
+class List : AppCompatActivity(), ListListener {
     lateinit var app: MainApp
     private lateinit var binding: ActivityListBinding
     private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
@@ -40,12 +41,21 @@ class List : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.action_cancel -> {
+                finish()
+            }
             R.id.action_create -> {
                 val launcherIntent = Intent(this, Create::class.java)
                 refreshIntentLauncher.launch(launcherIntent)
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCardClick(studentShare: StudentShareModel) {
+        val launcherIntent = Intent(this, Create::class.java)
+        launcherIntent.putExtra("edit", studentShare)
+        refreshIntentLauncher.launch(launcherIntent)
     }
 
     private fun registerRefreshCallback() {
@@ -59,6 +69,7 @@ class List : AppCompatActivity() {
     }
 
     fun showStudentShares (studentShares: List<StudentShareModel>) {
-        binding.recyclerView.adapter = ListAdapter(studentShares)
+        binding.recyclerView.adapter = ListAdapter(studentShares, this)
+        binding.recyclerView.adapter?.notifyDataSetChanged()
     }
 }

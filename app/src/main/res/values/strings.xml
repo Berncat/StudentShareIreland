@@ -7,5 +7,8 @@
     <string name="hint_phone">Phone</string>
     <string name="create_add">Add share</string>
     <string name="menu_list">Your Shares</string>
+    <string name="menu_delete">Delete</string>
     <string name="change_image">Change image</string>
+    <string name="create_update">Update share</string>
+    <string name="menu_cancel">Cancel</string>
 </resources>

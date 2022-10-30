@@ -3,8 +3,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_list"
+        android:visible="false"
+        android:id="@+id/action_delete"
         android:orderInCategory="100"
+        android:icon="@drawable/ic_baseline_delete_24"
+        android:title="@string/menu_delete"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_cancel"
+        android:orderInCategory="200"
+        android:icon="@drawable/ic_baseline_cancel_24"
+        android:title="@string/menu_cancel"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_list"
+        android:orderInCategory="300"
         android:title="@string/menu_list"
         app:showAsAction="never" />
 </menu>
